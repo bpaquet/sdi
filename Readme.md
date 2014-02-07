@@ -57,7 +57,7 @@ You can add element to the default context with `sdi.addToDefaultContext(myConte
 var m = sdi.require('./myModule'); // use default context
 var m = sdi.require('./myModule', myContext); // use myContext as context
 var m = sdi.require('./myModule', myContext1, {$b: 2}); // use 2 contexts
-var m = sdi.require('./myModule', myContext1, sdi.defaultContext); // use myContext and the default context
+var m = sdi.require('./myModule', myContext1, sdi.defaultContext()); // use myContext and the default context
 
 m.myFunc();
 
@@ -83,7 +83,7 @@ function f(req, res, $logger, $component1, $component2) {
   ...
 }
 
-var ff = sdi.wrap_function(f); // you can also provide a context, see above.
+var ff = sdi.wrapFunction(f); // you can also provide a context, see above.
 
 ff(req, res);
 ````
@@ -97,7 +97,7 @@ function MyObj() {
 MyObj.prototype.myFunc = function($logger) {
 };
 
-var o = sdi.wrap_object(new MyObj()); // you can also provide a context, see above.
+var o = sdi.wrapObject(new MyObj()); // you can also provide a context, see above.
 o.myFunc();
 ````
 
@@ -129,3 +129,14 @@ sdi.addToDefaultContext({component2: require('./tools/component2')});
 
 sdi.require('my_app').run();
 ````
+
+License
+===
+
+Copyright 2014 Bertrand Paquet
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
