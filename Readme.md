@@ -22,6 +22,7 @@ sdi.addToDefaultContext({
   $logger: {
     info: function(s) {
       console.log(s);
+    }
   },
   $config: 'myParam',
 });
