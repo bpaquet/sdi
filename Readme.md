@@ -102,7 +102,7 @@ o.myFunc();
 
 You can inject `$this` in object, to access to call methods with dependency injection. 
 
-Using `$this` avoid to use `.bind(this)` on all sub function.
+Using `$this` avoid to use `.bind(this)` on all sub functions.
 
 ````js
 MyObj.prototype.myFunc2 = function($logger, $this) {
