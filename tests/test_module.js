@@ -1,7 +1,7 @@
 var sdi = require('../lib/index.js'),
 	assert = require('assert');
 
-describe('Function injection', function() {
+describe('Module injection', function() {
 
 	beforeEach(function() {
 		sdi.resetDefaultContext();
