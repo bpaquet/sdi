@@ -54,10 +54,10 @@ You can add element to the default context with `sdi.addToDefaultContext(myConte
 ### Use dependency injection on a full module :
 
 ````js
-var m = sdi.require('./myModule'); // use default context
-var m = sdi.require('./myModule', myContext); // use myContext as context
-var m = sdi.require('./myModule', myContext1, {$b: 2}); // use 2 contexts
-var m = sdi.require('./myModule', myContext1, sdi.defaultContext()); // use myContext and the default context
+var m = sdi.wrapModule(require('./myModule')); // use default context
+var m = sdi.wrapModule(require('./myModule'), myContext); // use myContext as context
+var m = sdi.wrapModule(require('./myModule'), myContext1, {$b: 2}); // use 2 contexts
+var m = sdi.wrapModule(require('./myModule'), myContext1, sdi.defaultContext()); // use myContext and the default context
 
 m.myFunc();
 
