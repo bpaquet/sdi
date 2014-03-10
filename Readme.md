@@ -1,6 +1,8 @@
 Simple Dependency Injection for NodeJS
 ===
 
+[![Build Status](https://travis-ci.org/bpaquet/sdi.png)](https://travis-ci.org/bpaquet/sdi)
+
 SDI is a simple dependency injection engine, inspired from [Angular](http://angularjs.org/).
 
 An example :
