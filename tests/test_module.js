@@ -13,6 +13,7 @@ describe('Module injection', function() {
 		var m1 = sdi.wrapModule(require('./my_module'), {$b: 3, $c: 20});
 		assert.equal(m1.f1(5), 8);
 		assert.equal(m1.toto, 'tata');
+		assert.equal(m1.f3(), require('http'));
 
 		sdi.addToDefaultContext({$b: 2, $c: 40});
 		var m2 = sdi.wrapModule(require('./my_module'));
