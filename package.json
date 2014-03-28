@@ -1,7 +1,7 @@
 {
   "name": "sdi",
   "description": "Simple Dependency Injection for NodeJS, inspired by Angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Bertrand Paquet <bertrand.paquet@gmail.com>",
   "keywords": ["dependency injection"],
   "main": "./lib/index.js",
