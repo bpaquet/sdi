@@ -62,4 +62,15 @@ describe('Function injection', function() {
 		assert.equal(sdi.wrapFunction(f)(1), 9);
 	});
 
+	it('two dependencies with the same name', function() {
+		var f = function(x, $a, $b) {
+			return x + $a + $b;
+		};
+
+		sdi.addToDefaultContext({$a: 2});
+		sdi.addToDefaultContext({$b: 4});
+
+		assert.equal(sdi.wrapFunction(f, {$a:3}, {$b: 5})(1), 9);
+	});
+
 });
