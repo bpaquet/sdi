@@ -5,7 +5,7 @@ describe('Function injection', function() {
 
 	beforeEach(function() {
 		sdi.resetDefaultContext();
-		assert.equal(sdi.defaultContext().length, 0);
+		assert.deepEqual(sdi.defaultContext(), {});
 	});
 
 	it('No wrap', function() {
@@ -47,6 +47,30 @@ describe('Function injection', function() {
 
 		assert.equal(sdi.wrapFunction(f, {$a: 2}, sdi.defaultContext())(1), 3);
 		assert.equal(sdi.wrapFunction(f, {$a: 2}, sdi.defaultContext())(), 12);
+	});
+
+	it('two dependencies with the same name', function() {
+		var f = function(x, $a, $b) {
+			return x + $a + $b;
+		};
+
+		sdi.addToDefaultContext({$a: 2});
+		sdi.addToDefaultContext({$a: 3});
+		sdi.addToDefaultContext({$b: 4});
+		sdi.addToDefaultContext({$b: 5});
+
+		assert.equal(sdi.wrapFunction(f)(1), 9);
+	});
+
+	it('two dependencies with the same name', function() {
+		var f = function(x, $a, $b) {
+			return x + $a + $b;
+		};
+
+		sdi.addToDefaultContext({$a: 2});
+		sdi.addToDefaultContext({$b: 4});
+
+		assert.equal(sdi.wrapFunction(f, {$a:3}, {$b: 5})(1), 9);
 	});
 
 });

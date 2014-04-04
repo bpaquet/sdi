@@ -5,7 +5,7 @@ describe('Error injection', function() {
 
 	beforeEach(function() {
 		sdi.resetDefaultContext();
-		assert.equal(sdi.defaultContext().length, 0);
+		assert.deepEqual(sdi.defaultContext(), {});
 	});
 
 	it('Error in params order', function() {
